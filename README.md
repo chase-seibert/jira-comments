@@ -30,7 +30,17 @@ need to provide them again.
 
 #### Query for Recent Comments
 
-TODO
+```bash
+python jira-comments.py list --board 466 --days 10
+```
+
+Output:
+
+```bash
+Lorem ipsum dolor sit amet, consectetur adipiscing elit
+https://jira.atlassian.com/browse/SHSP-101
+ User Name: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
 
 ## Settings
 
