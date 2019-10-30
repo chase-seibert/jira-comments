@@ -46,8 +46,10 @@ def load_credentials():
         print e
         exit(1)
 
-def get_current_sprint(board_id):
+def get_current_sprint(board_id, sprint_id=None):
     jira = _connect()
+    if sprint_id:
+        return jira.sprint(sprint_id)
     for sprint in jira.sprints(board_id, extended=True):
         if sprint.state == 'ACTIVE':
             return sprint

@@ -27,7 +27,7 @@ def _get_since(days_ago):
 
 
 def get_comments(args):
-    sprint = lib_jira.get_current_sprint(args.board)
+    sprint = lib_jira.get_current_sprint(args.board, args.sprint_id)
     if not sprint:
         raise Exception('No active sprint found')
     since = _get_since(args.days)
@@ -61,6 +61,7 @@ if __name__ == '__main__':
     parser_report.add_argument('--board', help='JIRA Board ID',
         **kwargs_or_default(settings.JIRA_BOARD_ID))
     parser_report.add_argument('--days', help='Days ago', type=int)
+    parser_report.add_argument('--sprint-id', help='Sprint ID', type=int)
     parser_report.set_defaults(func=get_comments)
 
     args = parser.parse_args()
